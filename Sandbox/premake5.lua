@@ -17,6 +17,7 @@
     includedirs
     {
         "../JFEngine/src",
+        "../JFEngine/3rdPart/spdlog/include",
     }
 
     links
@@ -24,7 +25,7 @@
         "JFEngine",
     }
 
-    filter "system:windows"
+filter "system:windows"
     systemversion "latest"
 
     defines

@@ -19,12 +19,12 @@ files
 defines
 {
     "_CRT_SECURE_NO_WARNINGS",
-    "JF_PLATFORM_WINDOWS"
 }
 
 includedirs
 {
-    "src"
+    "src",
+    "3rdPart/spdlog/include",
 }
 
 links
@@ -37,15 +37,15 @@ filter "system:windows"
 
     defines
     {
-    
+     "JF_PLATFORM_WINDOWS",
     }
 
 filter "configurations:Debug"
-    defines "_DEBUG"
+    defines "JF_DEBUG"
     runtime "Debug"
     symbols "on"
 
 filter "configurations:Release"
-    defines "_RELEASE"
+    defines "JF_RELEASE"
     runtime "Release"
     optimize "on"

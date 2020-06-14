@@ -1,0 +1,3 @@
+[submodule "JFEngine/3rdPart/spdlog"]
+	path = JFEngine/3rdPart/spdlog
+	url = https://github.com/gabime/spdlog.git

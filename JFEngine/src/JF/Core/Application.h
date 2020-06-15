@@ -1,5 +1,6 @@
 #pragma once
 #include "Core.h"
+#include "JF/Events/Event.h"
 
 namespace JF
 {

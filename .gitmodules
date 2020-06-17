@@ -5,3 +5,6 @@
 [submodule "JFEngine/3rdPart/glfw"]
 	path = JFEngine/3rdPart/glfw
 	url = https://github.com/WangYiTao0/glfw.git
+[submodule "JFEngine/3rdPart/imgui"]
+	path = JFEngine/3rdPart/imgui
+	url = https://github.com/WangYiTao0/imgui.git

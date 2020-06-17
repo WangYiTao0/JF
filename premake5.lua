@@ -21,10 +21,14 @@ workspace "JF3d"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "3rdPart/glfw/include"
+IncludeDir["Glad"] = "3rdPart/glad/include"
+IncludeDir["Imgui"] = "3rdPart/imgui/include"
 
 -- Projects
 group "Dependencies"
     include "JFEngine/3rdPart/glfw"
+    include "JFEngine/3rdPart/glad"
+    include "JFEngine/3rdPart/imgui"
 group ""
 
 include "JFEngine"

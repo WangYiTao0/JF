@@ -32,12 +32,14 @@ filter "system:windows"
     {
     }
 
-filter "configurations:Debug"
-    defines "_DEBUG"
-    runtime "Debug"
-    symbols "on"
+	filter "configurations:Debug"
+		defines "JF_DEBUG"
+		symbols "On"
 
-filter "configurations:Release"
-    defines "_RELEASE"
-    runtime "Release"
-    optimize "on"
+	filter "configurations:Release"
+		defines "JF_RELEASE"
+		optimize "On"
+
+	filter "configurations:Dist"
+		defines "JF_DIST"
+		optimize "On"

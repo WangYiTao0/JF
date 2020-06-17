@@ -26,11 +26,13 @@ includedirs
     "src",
     "3rdPart/spdlog/include",
     "%{IncludeDir.GLFW}",
+    "%{IncludeDir.Glad}",
 }
 
 links
 {
     "GLFW",
+    "Glad",
     "opengl32.lib"
 }
 
@@ -39,14 +41,17 @@ filter "system:windows"
 
     defines
     {
+        "GLFW_INCLUDE_NONE"
     }
 
-filter "configurations:Debug"
-    defines "JF_DEBUG"
-    runtime "Debug"
-    symbols "on"
+	filter "configurations:Debug"
+		defines "JF_DEBUG"
+		symbols "On"
 
-filter "configurations:Release"
-    defines "JF_RELEASE"
-    runtime "Release"
-    optimize "on"
+	filter "configurations:Release"
+		defines "JF_RELEASE"
+		optimize "On"
+
+	filter "configurations:Dist"
+		defines "JF_DIST"
+		optimize "On"

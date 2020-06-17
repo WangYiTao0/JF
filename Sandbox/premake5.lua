@@ -16,8 +16,12 @@
     
     includedirs
     {
+		"../JFEngine/3rdPart/spdlog/include",
         "../JFEngine/src",
-        "../JFEngine/3rdPart/spdlog/include",
+		"../JFEngine/3rdPart",
+		"../JFEngine/%{IncludeDir.glm}",
+		"../JFEngine/%{IncludeDir.Glad}",
+		"../JFEngine/%{IncludeDir.ImGui}"
     }
 
     links

@@ -1,6 +1,8 @@
 #pragma once
 #include <JFEngine.h>
 
+#include "imgui.h"
+
 class ExampleLayer : public JF::Layer
 {
 public:
@@ -13,6 +15,13 @@ public:
 	{
 		if (JF::Input::IsKeyPressed(JF_KEY_TAB))
 			JF_TRACE("Tab key is pressed (poll)!");
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 
 	void OnEvent(JF::Event& event) override
@@ -35,7 +44,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new JF::ImGuiLayer());
 	}
 
 	~Sandbox()

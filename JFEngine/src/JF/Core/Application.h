@@ -6,7 +6,7 @@
 #include "JF/Events/Event.h"
 #include "JF/Events/ApplicationEvent.h"
 
-#include "Window.h"
+#include "JF/ImGui/ImGuiLayer.h"
 
 namespace JF
 {
@@ -30,8 +30,8 @@ namespace JF
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
-
 		LayerStack m_LayerStack;
 
 	private:

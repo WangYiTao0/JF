@@ -1,6 +1,6 @@
 #pragma once
 
-#include "JF/Core/Core.h"
+#include "JF/Core/Base.h"
 
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>

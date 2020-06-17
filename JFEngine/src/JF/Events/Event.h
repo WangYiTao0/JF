@@ -1,6 +1,6 @@
 #pragma once
 #include "jfpch.h"
-#include "JF/Core/Core.h"
+#include "JF/Core/Base.h"
 
 namespace JF {
 

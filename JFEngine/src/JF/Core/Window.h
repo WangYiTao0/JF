@@ -2,7 +2,7 @@
 
 #include "jfpch.h"
 
-#include "JF/Core/Core.h"
+#include "JF/Core/Base.h"
 #include "JF/Events/Event.h"
 
 namespace JF {

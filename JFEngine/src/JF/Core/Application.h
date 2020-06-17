@@ -1,6 +1,9 @@
 #pragma once
-#include "Core.h"
+#include "Base.h"
 #include "JF/Events/Event.h"
+#include "JF/Events/ApplicationEvent.h"
+
+#include "Window.h"
 
 namespace JF
 {
@@ -11,6 +14,13 @@ namespace JF
 		virtual ~Application();
 
 		void Run();
+
+		void OnEvent(Event& e);
+	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
 	// To be defined in CLIENT

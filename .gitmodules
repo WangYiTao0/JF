@@ -1,3 +1,7 @@
 [submodule "JFEngine/3rdPart/spdlog"]
 	path = JFEngine/3rdPart/spdlog
 	url = https://github.com/gabime/spdlog.git
+
+[submodule "JFEngine/3rdPart/glfw"]
+	path = JFEngine/3rdPart/glfw
+	url = https://github.com/WangYiTao0/glfw.git

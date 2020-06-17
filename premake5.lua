@@ -19,9 +19,12 @@ workspace "JF3d"
 
 -- Include directories relative to 
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "3rdPart/glfw/include"
+
 -- Projects
 group "Dependencies"
-
+    include "JFEngine/3rdPart/glfw"
 group ""
 
 include "JFEngine"

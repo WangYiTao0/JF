@@ -7,8 +7,8 @@ staticruntime "on"
 targetdir("../bin/" .. outputdir .. "/%{prj.name}")
 objdir("../bin-obj/" .. outputdir .. "/%{prj.name}")
 
---pchheader "aspch.h"
---pchsource "src/aspch.cpp"
+pchheader "jfpch.h"
+pchsource "src/jfpch.cpp"
 
 files
 {
@@ -25,11 +25,13 @@ includedirs
 {
     "src",
     "3rdPart/spdlog/include",
+    "%{IncludeDir.GLFW}",
 }
 
 links
 {
- 
+    "GLFW",
+    "opengl32.lib"
 }
 
 filter "system:windows"
@@ -37,7 +39,6 @@ filter "system:windows"
 
     defines
     {
-     "JF_PLATFORM_WINDOWS",
     }
 
 filter "configurations:Debug"

@@ -30,7 +30,6 @@ filter "system:windows"
 
     defines
     {
-        "JF_PLATFORM_WINDOWS",
     }
 
 filter "configurations:Debug"

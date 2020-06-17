@@ -8,3 +8,6 @@
 [submodule "JFEngine/3rdPart/imgui"]
 	path = JFEngine/3rdPart/imgui
 	url = https://github.com/WangYiTao0/imgui.git
+[submodule "JFEngine/3rdPart/glm"]
+	path = JFEngine/3rdPart/glm
+	url = https://github.com/g-truc/glm.git

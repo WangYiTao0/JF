@@ -23,6 +23,8 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "3rdPart/glfw/include"
 IncludeDir["Glad"] = "3rdPart/glad/include"
 IncludeDir["ImGui"] = "3rdPart/imgui"
+IncludeDir["glm"] = "3rdPart/glm"
+IncludeDir["stb_image"] = "3rdPart/stb_image"
 
 -- Projects
 group "Dependencies"

@@ -49,9 +49,9 @@
 //  ES 3.0    300       "#version 300 es"
 //----------------------------------------
 
-#if defined(_MSC_VER) && !defined(_CRT_SECURE_NO_WARNINGS)
-#define _CRT_SECURE_NO_WARNINGS
-#endif
+//#if defined(_MSC_VER) && !defined(_CRT_SECURE_NO_WARNINGS)
+//#define _CRT_SECURE_NO_WARNINGS
+//#endif
 
 #include "jfpch.h"
 #include "imgui.h"

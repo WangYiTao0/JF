@@ -13,7 +13,11 @@ pchsource "src/jfpch.cpp"
 files
 {
     "src/**.h",
-    "src/**.cpp"
+    "src/**.cpp",
+    "3rdPart/stb_image/**.h",
+    "3rdPart/stb_image/**.cpp",
+    "3rdPart/glm/glm/**.hpp",
+    "3rdPart/glm/glm/**.inl",
 }
 
 defines
@@ -28,6 +32,8 @@ includedirs
     "%{IncludeDir.GLFW}",
     "%{IncludeDir.Glad}",
     "%{IncludeDir.ImGui}",
+    "%{IncludeDir.glm}",
+    "%{IncludeDir.stb_image}",
 }
 
 links

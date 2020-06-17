@@ -22,7 +22,7 @@ workspace "JF3d"
 IncludeDir = {}
 IncludeDir["GLFW"] = "3rdPart/glfw/include"
 IncludeDir["Glad"] = "3rdPart/glad/include"
-IncludeDir["Imgui"] = "3rdPart/imgui/include"
+IncludeDir["ImGui"] = "3rdPart/imgui"
 
 -- Projects
 group "Dependencies"

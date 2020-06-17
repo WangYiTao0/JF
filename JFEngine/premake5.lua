@@ -27,13 +27,15 @@ includedirs
     "3rdPart/spdlog/include",
     "%{IncludeDir.GLFW}",
     "%{IncludeDir.Glad}",
+    "%{IncludeDir.ImGui}",
 }
 
 links
 {
     "GLFW",
     "Glad",
-    "opengl32.lib"
+    "ImGui",
+    "opengl32.lib",
 }
 
 filter "system:windows"

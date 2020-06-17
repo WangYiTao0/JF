@@ -18,6 +18,11 @@ namespace JF {
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		JF_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		JF_CORE_INFO("OpenGL Info:");
+		JF_CORE_INFO("  Vendor: {0}", glGetString(GL_VENDOR));
+		JF_CORE_INFO("  Renderer: {0}", glGetString(GL_RENDERER));
+		JF_CORE_INFO("  Version: {0}", glGetString(GL_VERSION));
 	}
 
 	void OpenGLContext::SwapBuffers()

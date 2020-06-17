@@ -1,2 +1,6 @@
-[01:35:18] [info] JFEngine: Initialized Log!
-[01:35:18] [info] JFEngine: Creating window JF Engine (1280, 720)
+[01:38:14] [info] JFEngine: Initialized Log!
+[01:38:14] [info] JFEngine: Creating window JF Engine (1280, 720)
+[01:38:14] [info] JFEngine: OpenGL Info:
+[01:38:14] [info] JFEngine:   Vendor: NVIDIA Corporation
+[01:38:14] [info] JFEngine:   Renderer: GeForce RTX 2080 Ti/PCIe/SSE2
+[01:38:14] [info] JFEngine:   Version: 4.6.0 NVIDIA 446.14

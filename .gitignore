@@ -2,12 +2,13 @@
 /bin/
 bin-obj/
 !3rdPart/bin/premake/*
-/bin-int/
+**bin/
+**bin-int/
 
 *imgui.ini
 
 # JF files
-*.log
+**.log
 
 # Visual Studio files and folder
 .vs/

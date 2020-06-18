@@ -11,11 +11,8 @@ namespace JF {
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:    JF_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::OpenGL:   return new OpenGLVertexBuffer(vertices, size);
-		case RendererAPI::DirectX11:   break;
-		case RendererAPI::DirectX12:   break;
-		case RendererAPI::Vulkan:   break;
+		case RendererAPI::API::None:    JF_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:  return new OpenGLVertexBuffer(vertices, size);
 		}
 
 		JF_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -26,10 +23,9 @@ namespace JF {
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:    JF_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::OpenGL:  return new OpenGLIndexBuffer(indices, size);
+		case RendererAPI::API::None:    JF_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:  return new OpenGLIndexBuffer(indices, size);
 		}
-
 		JF_CORE_ASSERT(false, "Unknown RendererAPI!");
 		return nullptr;
 	}

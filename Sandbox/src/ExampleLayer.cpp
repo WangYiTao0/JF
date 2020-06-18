@@ -10,11 +10,9 @@
 #include <glm/gtc/type_ptr.hpp>
 
 ExampleLayer::ExampleLayer()
-	: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+	: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 {
-
-	m_VertexArray.reset(JF::VertexArray::Create());
-
+	m_VertexArray = JF::VertexArray::Create();
 	float vertices[3 * 7] = {
 		-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
 		 0.5f, -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
@@ -35,7 +33,7 @@ ExampleLayer::ExampleLayer()
 	indexBuffer.reset(JF::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 	m_VertexArray->SetIndexBuffer(indexBuffer);
 
-	m_SquareVA.reset(JF::VertexArray::Create());
+	m_SquareVA = JF::VertexArray::Create();
 
 	float squareVertices[5 * 4] = {
 		-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -138,28 +136,13 @@ ExampleLayer::ExampleLayer()
 
 void ExampleLayer::OnUpdate(JF::Timestep ts)
 {
-	if (JF::Input::IsKeyPressed(JF_KEY_LEFT))
-		m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-	else if (JF::Input::IsKeyPressed(JF_KEY_RIGHT))
-		m_CameraPosition.x += m_CameraMoveSpeed * ts;
-
-	if (JF::Input::IsKeyPressed(JF_KEY_UP))
-		m_CameraPosition.y += m_CameraMoveSpeed * ts;
-	else if (JF::Input::IsKeyPressed(JF_KEY_DOWN))
-		m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-	if (JF::Input::IsKeyPressed(JF_KEY_A))
-		m_CameraRotation += m_CameraRotationSpeed * ts;
-	if (JF::Input::IsKeyPressed(JF_KEY_D))
-		m_CameraRotation -= m_CameraRotationSpeed * ts;
+	// Update
+	m_CameraController.OnUpdate(ts);
 
 	JF::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 	JF::RenderCommand::Clear();
 
-	m_Camera.SetPosition(m_CameraPosition);
-	m_Camera.SetRotation(m_CameraRotation);
-
-	JF::Renderer::BeginScene(m_Camera);
+	JF::Renderer::BeginScene(m_CameraController.GetCamera());
 
 	glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -193,7 +176,7 @@ void ExampleLayer::OnImGuiRender()
 	ImGui::End();
 }
 
-void ExampleLayer::OnEvent(JF::Event& event)
+void ExampleLayer::OnEvent(JF::Event& e)
 {
-
+	m_CameraController.OnEvent(e);
 }

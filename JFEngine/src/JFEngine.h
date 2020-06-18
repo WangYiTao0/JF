@@ -9,12 +9,14 @@
 #include "JF/Core/Input.h"
 #include "JF/Core/KeyCodes.h"
 #include "JF/Core/MouseButtonCodes.h"
+#include "JF/Renderer/OrthographicCameraController.h"
 
 #include "JF/Imgui/ImguiLayer.h"
 
 
 // ---Renderer------------------------
 #include "JF/Renderer/Renderer.h"
+#include "JF/Renderer/Renderer2D.h"
 #include "JF/Renderer/RenderCommand.h"
 
 #include "JF/Renderer/Buffer.h"

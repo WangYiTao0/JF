@@ -9,7 +9,7 @@ public:
 
 	virtual void OnImGuiRender() override;
 
-	void OnEvent(JF::Event& event) override;
+	void OnEvent(JF::Event& e) override;
 
 private:
 	JF::ShaderLibrary m_ShaderLibrary;
@@ -21,12 +21,8 @@ private:
 
 	JF::Ref<JF::Texture> m_Texture, m_JFTexture;
 
-	JF::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 5.0f;
 
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
+	JF::OrthographicCameraController m_CameraController;
 
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };

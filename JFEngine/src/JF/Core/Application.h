@@ -10,6 +10,8 @@
 
 #include "JF/ImGui/ImGuiLayer.h"
 
+int main(int argc, char** argv);
+
 namespace JF
 {
 	class  Application
@@ -18,7 +20,6 @@ namespace JF
 		Application();
 		virtual ~Application();
 
-		void Run();
 
 		void OnEvent(Event& e);
 
@@ -29,6 +30,7 @@ namespace JF
 
 		inline static Application& Get() { return *s_Instance; }
 	private:
+		void Run();
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 	private:
@@ -42,6 +44,7 @@ namespace JF
 
 	private:
 		static Application* s_Instance;
+		friend int ::main(int argc, char** argv);
 	};
 
 	// To be defined in CLIENT

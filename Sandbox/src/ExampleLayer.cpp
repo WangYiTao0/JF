@@ -20,7 +20,7 @@ ExampleLayer::ExampleLayer()
 	};
 
 	JF::Ref<JF::VertexBuffer> vertexBuffer;
-	vertexBuffer.reset(JF::VertexBuffer::Create(vertices, sizeof(vertices)));
+	vertexBuffer = JF::VertexBuffer::Create(vertices, sizeof(vertices));
 	JF::BufferLayout layout = {
 		{ JF::ShaderDataType::Float3, "a_Position" },
 		{ JF::ShaderDataType::Float4, "a_Color" }
@@ -30,7 +30,7 @@ ExampleLayer::ExampleLayer()
 
 	uint32_t indices[3] = { 0, 1, 2 };
 	JF::Ref<JF::IndexBuffer> indexBuffer;
-	indexBuffer.reset(JF::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+	indexBuffer = JF::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 	m_VertexArray->SetIndexBuffer(indexBuffer);
 
 	m_SquareVA = JF::VertexArray::Create();
@@ -43,7 +43,7 @@ ExampleLayer::ExampleLayer()
 	};
 
 	JF::Ref<JF::VertexBuffer> squareVB;
-	squareVB.reset(JF::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+	squareVB = JF::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 	squareVB->SetLayout({
 		{ JF::ShaderDataType::Float3, "a_Position" },
 		{ JF::ShaderDataType::Float2, "a_TexCoord" }
@@ -52,7 +52,7 @@ ExampleLayer::ExampleLayer()
 
 	uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 	JF::Ref<JF::IndexBuffer> squareIB;
-	squareIB.reset(JF::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+	squareIB = JF::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 	m_SquareVA->SetIndexBuffer(squareIB);
 
 	std::string vertexSrc = R"(

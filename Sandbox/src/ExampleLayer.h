@@ -12,10 +12,11 @@ public:
 	void OnEvent(JF::Event& event) override;
 
 private:
+	JF::ShaderLibrary m_ShaderLibrary;
 	JF::Ref<JF::Shader> m_Shader;
 	JF::Ref<JF::VertexArray> m_VertexArray;
 
-	JF::Ref<JF::Shader> m_FlatColorShader, m_TextureShader;
+	JF::Ref<JF::Shader> m_FlatColorShader;
 	JF::Ref<JF::VertexArray> m_SquareVA;
 
 	JF::Ref<JF::Texture> m_Texture, m_JFTexture;

@@ -92,7 +92,7 @@ ExampleLayer::ExampleLayer()
 			}
 		)";
 
-	m_Shader.reset(JF::Shader::Create(vertexSrc, fragmentSrc));
+	m_Shader = JF::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 	std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -126,16 +126,14 @@ ExampleLayer::ExampleLayer()
 			}
 		)";
 
-	m_FlatColorShader.reset(JF::Shader::Create (flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+	m_FlatColorShader = JF::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-
-
-	m_TextureShader.reset(JF::Shader::Create("assets/shaders/Texture.glsl"));
+	auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 	m_Texture = JF::Texture2D::Create("assets/textures/Checkerboard.png");
 	m_JFTexture = JF::Texture2D::Create("assets/textures/JFLogo.png");
-	std::dynamic_pointer_cast<JF::OpenGLShader>(m_TextureShader)->Bind();
-	std::dynamic_pointer_cast<JF::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+	std::dynamic_pointer_cast<JF::OpenGLShader>(textureShader)->Bind();
+	std::dynamic_pointer_cast<JF::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 }
 
 void ExampleLayer::OnUpdate(JF::Timestep ts)
@@ -178,10 +176,12 @@ void ExampleLayer::OnUpdate(JF::Timestep ts)
 		}
 	}
 
+	auto textureShader = m_ShaderLibrary.Get("Texture");
+
 	m_Texture->Bind();
-	JF::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+	JF::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 	m_JFTexture->Bind();
-	JF::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+	JF::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 	JF::Renderer::EndScene();
 }

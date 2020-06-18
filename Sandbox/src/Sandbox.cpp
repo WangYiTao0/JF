@@ -4,7 +4,6 @@
 #include <JF/Core/EntryPoint.h>
 
 #include "ExampleLayer.h"
-#include "imgui.h"
 
 class Sandbox : public JF::Application
 {

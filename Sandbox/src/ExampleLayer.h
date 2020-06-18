@@ -12,11 +12,13 @@ public:
 	void OnEvent(JF::Event& event) override;
 
 private:
-	std::shared_ptr<JF::Shader> m_Shader;
-	std::shared_ptr<JF::VertexArray> m_VertexArray;
+	JF::Ref<JF::Shader> m_Shader;
+	JF::Ref<JF::VertexArray> m_VertexArray;
 
-	std::shared_ptr<JF::Shader> m_BlueShader;
-	std::shared_ptr<JF::VertexArray> m_SquareVA;
+	JF::Ref<JF::Shader> m_FlatColorShader, m_TextureShader;
+	JF::Ref<JF::VertexArray> m_SquareVA;
+
+	JF::Ref<JF::Texture> m_Texture, m_JFTexture;
 
 	JF::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
@@ -24,4 +26,6 @@ private:
 
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
+
+	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };

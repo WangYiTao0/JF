@@ -1,0 +1,22 @@
+#pragma once
+
+namespace JF {
+
+	enum class RendererAPI
+	{
+		None = 0, OpenGL = 1,
+		DirectX11 = 2,
+		DirectX12 = 3,
+		Vulkan = 4,
+	};
+
+	class Renderer
+	{
+	public:
+		inline static RendererAPI GetAPI() { return s_RendererAPI; }
+	private:
+		static RendererAPI s_RendererAPI;
+	};
+
+
+}

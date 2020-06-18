@@ -8,7 +8,7 @@
 
 #include "JF/Core/Input.h"
 #include "JF/Core/KeyCodes.h"
-#include "JF/Core/MouseButtonCodes.h"
+#include "JF/Core/MouseCodes.h"
 #include "JF/Renderer/OrthographicCameraController.h"
 
 #include "JF/Imgui/ImguiLayer.h"

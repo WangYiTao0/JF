@@ -1,9 +1,13 @@
 #include "jfpch.h"
 #include "WindowsWindow.h"
 
+#include "JF/Core/Input.h"
+
 #include "JF/Events/ApplicationEvent.h"
 #include "JF/Events/MouseEvent.h"
 #include "JF/Events/KeyEvent.h"
+
+#include "JF/Renderer/Renderer.h"
 
 #include <glad/glad.h>
 #include "Platform/OpenGL/OpenGLContext.h"
@@ -26,16 +30,22 @@ namespace JF {
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
+		JF_PROFILE_FUNCTION();
+
 		Init(props);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
+		JF_PROFILE_FUNCTION();
+
 		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+		JF_PROFILE_FUNCTION();
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -44,17 +54,24 @@ namespace JF {
 
 		if (s_GLFWWindowCount == 0)
 		{
+			JF_PROFILE_SCOPE("glfwInit");
+
 			JF_CORE_INFO("Initializing GLFW");
 			// TODO: glfwTerminate on system shutdown
 			int success = glfwInit();
 			JF_CORE_ASSERT(success, "Could not intialize GLFW!");
-
 			glfwSetErrorCallback(GLFWErrorCallback);
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		++s_GLFWWindowCount;
-
+		{
+			JF_PROFILE_SCOPE("glfwCreateWindow");
+#if defined(JF_DEBUG)
+			if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+#endif
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+			++s_GLFWWindowCount;
+		}
 		m_Context = new OpenGLContext(m_Window);
 		m_Context->Init();
 
@@ -88,19 +105,19 @@ namespace JF {
 				{
 				case GLFW_PRESS:
 				{
-					KeyPressedEvent event(key, 0);
+					KeyPressedEvent event(static_cast<KeyCode>(key), 0);
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					KeyReleasedEvent event(key);
+					KeyReleasedEvent event(static_cast<KeyCode>(key));
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
-					KeyPressedEvent event(key, 1);
+					KeyPressedEvent event(static_cast<KeyCode>(key), 1);
 					data.EventCallback(event);
 					break;
 				}
@@ -111,7 +128,7 @@ namespace JF {
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				KeyTypedEvent event(keycode);
+				KeyTypedEvent event(static_cast<KeyCode>(keycode));
 				data.EventCallback(event);
 			});
 
@@ -123,13 +140,13 @@ namespace JF {
 				{
 				case GLFW_PRESS:
 				{
-					MouseButtonPressedEvent event(button);
+					MouseButtonPressedEvent event(static_cast<MouseCode>(button));
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					MouseButtonReleasedEvent event(button);
+					MouseButtonReleasedEvent event(static_cast<MouseCode>(button));
 					data.EventCallback(event);
 					break;
 				}
@@ -155,6 +172,8 @@ namespace JF {
 
 	void WindowsWindow::Shutdown()
 	{
+		JF_PROFILE_FUNCTION();
+
 		glfwDestroyWindow(m_Window);
 
 		if (--s_GLFWWindowCount == 0)
@@ -166,12 +185,16 @@ namespace JF {
 
 	void WindowsWindow::OnUpdate()
 	{
+		JF_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
 	{
+		JF_PROFILE_FUNCTION();
+
 		if (enabled)
 			glfwSwapInterval(1);
 		else

@@ -12,6 +12,8 @@
 #include "JF/Renderer/Buffer.h"
 #include "JF/Renderer/VertexArray.h"
 
+#include "JF/Renderer/OrthographicCamera.h"
+
 namespace JF
 {
 	class  Application
@@ -43,6 +45,8 @@ namespace JF
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};

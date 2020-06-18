@@ -8,6 +8,8 @@
 
 #include "JF/ImGui/ImGuiLayer.h"
 
+#include "JF/Renderer/Shader.h"
+
 namespace JF
 {
 	class  Application
@@ -35,6 +37,7 @@ namespace JF
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 	};

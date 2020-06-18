@@ -1,6 +1,7 @@
 #pragma once
 
 #include "JF/Core/Base.h"
+#include "JF/Core/Timestep.h"
 #include "JF/Events/Event.h"
 
 namespace JF {
@@ -13,7 +14,7 @@ namespace JF {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

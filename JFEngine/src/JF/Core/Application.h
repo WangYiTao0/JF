@@ -6,13 +6,9 @@
 #include "JF/Events/Event.h"
 #include "JF/Events/ApplicationEvent.h"
 
+#include "JF/Core/Timestep.h"
+
 #include "JF/ImGui/ImGuiLayer.h"
-
-#include "JF/Renderer/Shader.h"
-#include "JF/Renderer/Buffer.h"
-#include "JF/Renderer/VertexArray.h"
-
-#include "JF/Renderer/OrthographicCamera.h"
 
 namespace JF
 {
@@ -34,19 +30,14 @@ namespace JF
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
+		float m_LastFrameTime = 0.0f;
 
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};

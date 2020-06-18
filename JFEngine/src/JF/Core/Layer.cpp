@@ -3,9 +3,9 @@
 
 namespace JF {
 
-	Layer::Layer(const std::string& name)
+	Layer::Layer(const std::string& debugName)
+		: m_DebugName(debugName)
 	{
-
 	}
 
 	Layer::~Layer()

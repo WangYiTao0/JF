@@ -1,8 +1,8 @@
-[21:51:51] [info] JFEngine: Initialized Log!
-[21:51:51] [info] JFEngine: Creating window JF Engine (1280, 720)
-[21:51:51] [info] JFEngine: Initializing GLFW
-[21:51:52] [info] JFEngine: OpenGL Info:
-[21:51:52] [info] JFEngine:   Vendor: NVIDIA Corporation
-[21:51:52] [info] JFEngine:   Renderer: GeForce RTX 2080 Ti/PCIe/SSE2
-[21:51:52] [info] JFEngine:   Version: 4.6.0 NVIDIA 446.14
-[21:52:09] [info] JFEngine: Terminating GLFW
+[22:09:29] [info] JFEngine: Initialized Log!
+[22:09:29] [info] JFEngine: Creating window JF Engine (1280, 720)
+[22:09:29] [info] JFEngine: Initializing GLFW
+[22:09:29] [info] JFEngine: OpenGL Info:
+[22:09:29] [info] JFEngine:   Vendor: NVIDIA Corporation
+[22:09:29] [info] JFEngine:   Renderer: GeForce RTX 2080 Ti/PCIe/SSE2
+[22:09:29] [info] JFEngine:   Version: 4.6.0 NVIDIA 446.14
+[22:09:31] [info] JFEngine: Terminating GLFW

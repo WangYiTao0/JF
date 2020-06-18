@@ -15,6 +15,8 @@
 
 #include "JF/Core/Log.h"
 
+#include "JF/Debug/Instrucmentor.h"
+
 #ifdef JF_PLATFORM_WINDOWS
 #include <Windows.h>
 #endif

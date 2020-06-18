@@ -5,6 +5,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 
+
 Sandbox2D::Sandbox2D()
 	: Layer("Sandbox2D"), m_CameraController(1280.0f / 720.0f)
 {
@@ -21,6 +22,7 @@ void Sandbox2D::OnDetach()
 
 void Sandbox2D::OnUpdate(JF::Timestep ts)
 {
+	JF_PROFILE_FUNCTION();
 	// Update
 	m_CameraController.OnUpdate(ts);
 

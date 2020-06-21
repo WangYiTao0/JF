@@ -20,6 +20,7 @@ private:
 	// Temp
 	JF::Ref<JF::VertexArray> m_SquareVA;
 	JF::Ref<JF::Shader> m_FlatColorShader;
+	JF::Ref<JF::Framebuffer> m_Framebuffer;
 
 	JF::Ref<JF::Texture2D> m_CheckerboardTexture;
 

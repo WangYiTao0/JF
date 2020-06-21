@@ -52,6 +52,11 @@ namespace JF {
 		layer->OnAttach();
 	}
 
+	void Application::Close()
+	{
+		m_Running = false;
+	}
+
 	void Application::OnEvent(Event& e)
 	{
 		JF_PROFILE_FUNCTION();

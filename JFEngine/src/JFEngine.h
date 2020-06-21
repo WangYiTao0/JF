@@ -21,6 +21,7 @@
 
 #include "JF/Renderer/Buffer.h"
 #include "JF/Renderer/Shader.h"
+#include "JF/Renderer/Framebuffer.h"
 #include "JF/Renderer/Texture.h"
 #include "JF/Renderer/VertexArray.h"
 

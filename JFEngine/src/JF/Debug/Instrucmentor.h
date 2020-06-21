@@ -216,10 +216,10 @@ namespace JF {
 #define JF_FUNC_SIG "JF_FUNC_SIG unknown!"
 #endif
 
-#define JF_PROFILE_BEGIN_SESSION(name, filepath) ::Hazel::Instrumentor::Get().BeginSession(name, filepath)
-#define JF_PROFILE_END_SESSION() ::Hazel::Instrumentor::Get().EndSession()
-#define JF_PROFILE_SCOPE(name) constexpr auto fixedName = ::Hazel::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
-									::Hazel::InstrumentationTimer timer##__LINE__(fixedName.Data)
+#define JF_PROFILE_BEGIN_SESSION(name, filepath) ::JF::Instrumentor::Get().BeginSession(name, filepath)
+#define JF_PROFILE_END_SESSION() ::JF::Instrumentor::Get().EndSession()
+#define JF_PROFILE_SCOPE(name) constexpr auto fixedName = ::JF::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
+									::JF::InstrumentationTimer timer##__LINE__(fixedName.Data)
 #define JF_PROFILE_FUNCTION() JF_PROFILE_SCOPE(JF_FUNC_SIG)
 #else
 #define JF_PROFILE_BEGIN_SESSION(name, filepath)

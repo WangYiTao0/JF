@@ -1,7 +1,7 @@
 workspace "JF3d"
     architecture "x64"
     targetdir "build"
-    startproject "Sandbox"
+    startproject "JF_Editor"
 
     configurations
     {
@@ -34,5 +34,6 @@ group "Dependencies"
 group ""
 
 include "JFEngine"
+include "JF_Editor"
 include "Sandbox"
 

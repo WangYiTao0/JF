@@ -12,6 +12,8 @@ namespace JF {
 	protected:
 		Input() = default;
 	public:
+		virtual ~Input() = default;
+	public:
 		Input(const Input&) = delete;
 		Input& operator=(const Input&) = delete;
 

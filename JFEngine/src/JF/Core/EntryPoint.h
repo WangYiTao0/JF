@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 	app->Run();
 	JF_PROFILE_END_SESSION();
 
-	JF_PROFILE_BEGIN_SESSION("Startup", "JF-Profile-Shutdown.json");
+	JF_PROFILE_BEGIN_SESSION("Shutdown", "JF-Profile-Shutdown.json");
 	delete app;
 	JF_PROFILE_END_SESSION();
 }

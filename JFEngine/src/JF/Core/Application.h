@@ -17,7 +17,7 @@ namespace JF
 	class  Application
 	{
 	public:
-		Application();
+		Application(const std::string& name = "JF App");
 		virtual ~Application();
 
 

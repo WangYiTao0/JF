@@ -17,16 +17,19 @@
     includedirs
     {
 		"../JFEngine/3rdPart/spdlog/include",
-        "../JFEngine/src",
+		"../JFEngine/src",
+		"../JF_Audio/src",
 		"../JFEngine/3rdPart",
 		"../JFEngine/%{IncludeDir.glm}",
 		--"../JFEngine/%{IncludeDir.Glad}",
-		--"../JFEngine/%{IncludeDir.ImGui}"
+		--"../JFEngine/%{IncludeDir.ImGui}",
+		"../JFEngine/%{IncludeDir.entt}",
     }
 
     links
     {
-        "JFEngine",
+		"JFEngine",
+		"JF_Audio",
     }
 
 filter "system:windows"

@@ -18,10 +18,13 @@ files
     "3rdPart/stb_image/**.cpp",
     "3rdPart/glm/glm/**.hpp",
     "3rdPart/glm/glm/**.inl",
+    --"3rdPart/entt/include/**.hpp",
+    --"3rdPart/entt/include/**.h",
 }
 
 defines
 {
+    "NOMINMAX",
     "_CRT_SECURE_NO_WARNINGS",
 }
 
@@ -34,6 +37,7 @@ includedirs
     "%{IncludeDir.ImGui}",
     "%{IncludeDir.glm}",
     "%{IncludeDir.stb_image}",
+    "%{IncludeDir.entt}",
 }
 
 links

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JFEngine.h>
+#include <JFAudio.h>
 
 namespace JF {
 

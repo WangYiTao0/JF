@@ -11,22 +11,25 @@
 	files
 	{
 		"src/**.h",
-		"src/**.cpp"
+		"src/**.cpp",
     }
     
     includedirs
     {
 		"../JFEngine/3rdPart/spdlog/include",
         "../JFEngine/src",
+		"../JFAudio/src",
 		"../JFEngine/3rdPart",
 		"../JFEngine/%{IncludeDir.glm}",
 		"../JFEngine/%{IncludeDir.Glad}",
-		"../JFEngine/%{IncludeDir.ImGui}"
+		"../JFEngine/%{IncludeDir.ImGui}",
+		"../JFEngine/%{IncludeDir.entt}",
     }
 
     links
     {
-        "JFEngine",
+		"JFEngine",
+		"JF_Audio",
     }
 
 filter "system:windows"

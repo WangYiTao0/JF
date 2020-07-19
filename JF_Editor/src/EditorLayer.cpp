@@ -21,6 +21,9 @@ namespace JF {
 		fbSpec.Width = 1280;
 		fbSpec.Height = 720;
 		m_Framebuffer = JF::Framebuffer::Create(fbSpec);
+
+		// Initialize the audio engine
+		JF::Audio::Init();
 	}
 
 	void EditorLayer::OnDetach()
@@ -30,6 +33,18 @@ namespace JF {
 
 	void EditorLayer::OnUpdate(JF::Timestep ts)
 	{
+		// Load audio source from file
+		auto source = JF::AudioSource::LoadFromFile("assets/BackgroundMusic.mp3", false);
+		// Make it loop forever
+		source.SetLoop(true);
+		// Play audio source
+		JF::Audio::Play(source);
+
+		auto frontLeftSource = JF::AudioSource::LoadFromFile("assets/FrontLeft.ogg", true);
+		frontLeftSource.SetGain(5.0f);
+		frontLeftSource.SetPosition(-5.0f, 0.0f, 5.0f);
+		JF::Audio::Play(frontLeftSource);
+
 		JF_PROFILE_FUNCTION();
 
 		// Update

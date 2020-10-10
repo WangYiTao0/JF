@@ -3,6 +3,7 @@
 #include "JF/Core/Application.h"
 #include "JF/Core/Layer.h"
 #include "JF/Core/Log.h"
+#include "JF/Core/Assert.h"
 
 #include "JF/Core/Timestep.h"
 

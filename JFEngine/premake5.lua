@@ -36,6 +36,7 @@ includedirs
     "%{IncludeDir.glm}",
     "%{IncludeDir.stb_image}",
     "%{IncludeDir.entt}",
+	"%{IncludeDir.Vulkan}",
 }
 
 links
@@ -44,6 +45,7 @@ links
     "Glad",
     "ImGui",
     "opengl32.lib",
+	"%{LibraryDir.Vulkan}",
 }
 
 filter "system:windows"

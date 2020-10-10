@@ -1,7 +1,6 @@
 #pragma once
 
 #include "JF/Core/Base.h"
-#include "JF/Core/Log.h"
 #include "JF/Scene/Scene.h"
 #include "JF/Scene/Entity.h"
 

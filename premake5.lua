@@ -33,6 +33,10 @@ IncludeDir["ImGui"] = "%{wks.location}/JFEngine/3rdPart/imgui"
 IncludeDir["glm"] = "%{wks.location}/JFEngine/3rdPart/glm"
 IncludeDir["stb_image"] = "%{wks.location}/JFEngine/3rdPart/stb_image"
 IncludeDir["entt"] = "%{wks.location}/JFEngine/3rdPart/entt/include"
+IncludeDir["Vulkan"] = "%{wks.location}/JFEngine/3rdPart/Vulkan/1.2.148.1/Include"
+
+LibraryDir = {}
+LibraryDir["Vulkan"] = "%{wks.location}/JFEngine/3rdPart/Vulkan/1.2.148.1/Lib/vulkan-1.lib"
 
 -- Projects
 group "Dependencies"

@@ -18,14 +18,8 @@
 #define JF_DEBUGBREAK()
 #endif
 
-#ifdef JF_ENABLE_ASSERTS
-#define JF_ASSERT(x, ...) { if(!(x)) { JF_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-#define JF_CORE_ASSERT(x, ...) { if(!(x)) { JF_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-#else
-#define JF_ASSERT(x, ...)
-#define JF_CORE_ASSERT(x, ...)
-#endif
-
+#define JF_EXPAND_MACRO(x) x
+#define JF_STRINGIFY_MACRO(x) #x
 #define BIT(x) (1 << x)
 
 #define JF_BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
@@ -50,3 +44,6 @@ namespace JF {
 	}
 
 }
+
+#include "JF/Core/Log.h"
+#include "JF/Core/Assert.h"

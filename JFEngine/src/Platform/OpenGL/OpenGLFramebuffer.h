@@ -11,7 +11,9 @@ namespace JF {
 		virtual ~OpenGLFramebuffer();
 
 		void Invalidate();
-
+		/// <summary>
+		/// 
+		/// </summary>
 		virtual void Bind() override;
 		virtual void Unbind() override;
 

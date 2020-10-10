@@ -1,6 +1,5 @@
 #pragma once
-
-#include "jfpch.h"
+#include <sstream>
 
 #include "JF/Core/Base.h"
 #include "JF/Events/Event.h"

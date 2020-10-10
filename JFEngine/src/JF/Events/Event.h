@@ -1,5 +1,6 @@
 #pragma once
-#include "jfpch.h"
+#include <functional>
+#include "JF/Debug/Instrumentor.h"
 #include "JF/Core/Base.h"
 
 namespace JF {

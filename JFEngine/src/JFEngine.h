@@ -13,6 +13,12 @@
 
 #include "JF/Imgui/ImguiLayer.h"
 
+#include "JF/Scene/Scene.h"
+#include "JF/Scene/Entity.h"
+#include "JF/Scene/ScriptableEntity.h"
+#include "JF/Scene/Components.h"
+
+
 
 // ---Renderer------------------------
 #include "JF/Renderer/Renderer.h"

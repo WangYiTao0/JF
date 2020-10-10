@@ -27,15 +27,9 @@ namespace JF {
 
 	class Instrumentor
 	{
-	private:
-		std::mutex m_Mutex;
-		InstrumentationSession* m_CurrentSession;
-		std::ofstream m_OutputStream;
 	public:
-		Instrumentor()
-			: m_CurrentSession(nullptr)
-		{
-		}
+		Instrumentor(const Instrumentor&) = delete;
+		Instrumentor(Instrumentor&&) = delete;
 
 		void BeginSession(const std::string& name, const std::string& filepath = "results.json")
 		{
@@ -104,6 +98,15 @@ namespace JF {
 		}
 
 	private:
+		Instrumentor()
+			: m_CurrentSession(nullptr)
+		{
+		}
+
+		~Instrumentor()
+		{
+			EndSession();
+		}
 
 		void WriteHeader()
 		{
@@ -129,6 +132,11 @@ namespace JF {
 				m_CurrentSession = nullptr;
 			}
 		}
+
+	private:
+		std::mutex m_Mutex;
+		InstrumentationSession* m_CurrentSession;
+		std::ofstream m_OutputStream;
 
 	};
 
@@ -218,8 +226,10 @@ namespace JF {
 
 #define JF_PROFILE_BEGIN_SESSION(name, filepath) ::JF::Instrumentor::Get().BeginSession(name, filepath)
 #define JF_PROFILE_END_SESSION() ::JF::Instrumentor::Get().EndSession()
-#define JF_PROFILE_SCOPE(name) constexpr auto fixedName = ::JF::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
-									::JF::InstrumentationTimer timer##__LINE__(fixedName.Data)
+#define JF_PROFILE_SCOPE_LINE2(name, line) constexpr auto fixedName##line = ::JF::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
+											   ::JF::InstrumentationTimer timer##line(fixedName##line.Data)
+#define JF_PROFILE_SCOPE_LINE(name, line) JF_PROFILE_SCOPE_LINE2(name, line)
+#define JF_PROFILE_SCOPE(name) JF_PROFILE_SCOPE_LINE(name, __LINE__)
 #define JF_PROFILE_FUNCTION() JF_PROFILE_SCOPE(JF_FUNC_SIG)
 #else
 #define JF_PROFILE_BEGIN_SESSION(name, filepath)

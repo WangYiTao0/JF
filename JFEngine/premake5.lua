@@ -34,6 +34,7 @@ includedirs
     "%{IncludeDir.ImGui}",
     "%{IncludeDir.glm}",
     "%{IncludeDir.stb_image}",
+    "%{IncludeDir.entt}",
 }
 
 links

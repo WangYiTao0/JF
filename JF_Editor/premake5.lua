@@ -22,11 +22,17 @@
 		"../JFEngine/%{IncludeDir.glm}",
 		--"../JFEngine/%{IncludeDir.Glad}",
 		--"../JFEngine/%{IncludeDir.ImGui}"
+		"../JFEngine/%{IncludeDir.entt}",
     }
 
     links
     {
         "JFEngine",
+	}
+	
+	defines
+    {
+
     }
 
 filter "system:windows"

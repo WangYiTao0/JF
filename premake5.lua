@@ -25,6 +25,7 @@ IncludeDir["Glad"] = "3rdPart/glad/include"
 IncludeDir["ImGui"] = "3rdPart/imgui"
 IncludeDir["glm"] = "3rdPart/glm"
 IncludeDir["stb_image"] = "3rdPart/stb_image"
+IncludeDir["entt"] = "3rdPart/entt/include"
 
 -- Projects
 group "Dependencies"

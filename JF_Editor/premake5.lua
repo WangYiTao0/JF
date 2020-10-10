@@ -5,8 +5,8 @@
 	cppdialect "C++17"
 	staticruntime "on"
 
-	targetdir ("../bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("../bin-obj/" .. outputdir .. "/%{prj.name}")
+	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("%{wks.location}/bin-obj/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{
@@ -16,10 +16,10 @@
     
     includedirs
     {
-		"../JFEngine/3rdPart/spdlog/include",
-        "../JFEngine/src",
-		"../JFEngine/3rdPart",
-		"../JFEngine/%{IncludeDir.glm}",
+		"%{wks.location}/JFEngine/3rdPart/spdlog/include",
+        "%{wks.location}/JFEngine/src",
+		"%{wks.location}/JFEngine/3rdPart",
+		"%{IncludeDir.glm}",
 		--"../JFEngine/%{IncludeDir.Glad}",
 		--"../JFEngine/%{IncludeDir.ImGui}"
 		"../JFEngine/%{IncludeDir.entt}",

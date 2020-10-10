@@ -7,6 +7,11 @@
 #include <string>
 #include <thread>
 
+#include <mutex>
+#include <sstream>
+
+#include "JF/Core/Log.h"
+
 namespace JF {
 
 	using FloatingPointMicroseconds = std::chrono::duration<double, std::micro>;

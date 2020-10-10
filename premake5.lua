@@ -1,3 +1,5 @@
+include "./3rdPart/premake/premake_customization/solution_items.lua"
+
 workspace "JF3d"
     architecture "x64"
     targetdir "build"
@@ -10,6 +12,11 @@ workspace "JF3d"
         "Dist"
     }
 
+    solution_items
+	{
+		".editorconfig"
+	}
+
     flags
     {
         "MultiProcessorCompile"
@@ -20,15 +27,16 @@ workspace "JF3d"
 -- Include directories relative to 
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "3rdPart/glfw/include"
-IncludeDir["Glad"] = "3rdPart/glad/include"
-IncludeDir["ImGui"] = "3rdPart/imgui"
-IncludeDir["glm"] = "3rdPart/glm"
-IncludeDir["stb_image"] = "3rdPart/stb_image"
-IncludeDir["entt"] = "3rdPart/entt/include"
+IncludeDir["GLFW"] = "%{wks.location}/JFEngine/3rdPart/glfw/include"
+IncludeDir["Glad"] = "%{wks.location}/JFEngine/3rdPart/glad/include"
+IncludeDir["ImGui"] = "%{wks.location}/JFEngine/3rdPart/imgui"
+IncludeDir["glm"] = "%{wks.location}/JFEngine/3rdPart/glm"
+IncludeDir["stb_image"] = "%{wks.location}/JFEngine/3rdPart/stb_image"
+IncludeDir["entt"] = "%{wks.location}/JFEngine/3rdPart/entt/include"
 
 -- Projects
 group "Dependencies"
+    include "3rdPart/premake"
     include "JFEngine/3rdPart/glfw"
     include "JFEngine/3rdPart/glad"
     include "JFEngine/3rdPart/imgui"

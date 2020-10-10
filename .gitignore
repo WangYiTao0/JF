@@ -8,7 +8,6 @@ bin-obj/
 !3rdPart/bin/premake/*
 **bin-int/
 
-*imgui.ini
 
 # JF files
 **.log

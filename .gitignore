@@ -1,11 +1,11 @@
 # Binaries
 **/bin/
-!vendor/premake/bin/
+!3rdPart/premake/bin/
 bin-int/
 
 /bin/
 bin-obj/
-!3rdPart/bin/premake/*
+!3rdPart/premake/bin/*
 **bin-int/
 
 
